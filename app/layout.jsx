@@ -1,9 +1,77 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
-
 import ChakraUIProvider from "@/components/providers/ChakraUIProvider";
 import Navigation from "@/components/navbar";
+//import Fonts from "@/theme/fonts";
+
+// next google fonts import
+import { Dancing_Script } from "next/font/google";
+const dancing = Dancing_Script({ subsets: ["latin"] });
+
+// next local fonts import
+import localFont from "next/font/local";
+
+const interLocal = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Inter/Inter-Regular.woff2",
+      weight: "400",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+    {
+      path: "../assets/fonts/Inter/Inter-Medium.woff2",
+      weight: "500",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+    {
+      path: "../assets/fonts/Inter/Inter-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+    {
+      path: "../assets/fonts/Inter/Inter-Bold.woff2",
+      weight: "700",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+
+  ],
+});
+const jakartaLocal = localFont({
+  src: [
+    {
+      path: "../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Regular.woff2",
+      weight: "400",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+    {
+      path: "../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Medium.woff2",
+      weight: "500",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+    {
+      path: "../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-SemiBold.woff2",
+      weight: "600",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+    {
+      path: "../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-Bold.woff2",
+      weight: "700",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+    {
+      path: "../assets/fonts/Plus_Jakarta_Sans/PlusJakartaSans-ExtraBold.woff2",
+      weight: "800",
+      style: "normal",
+      fontDisplay: "swap"
+    },
+  ],
+});
 
 export const metadata = {
   title: "Boilerplate Next App",
@@ -17,7 +85,14 @@ export default function RootLayout({ children }) {
       {/* <head>
         <link rel="icon" href="/favicon.ico" />
       </head> */}
-      <body className={inter.className}>
+      <body
+      //google fonts
+      // className={dancing.className}
+      // local fonts
+      // chakra provider automatski povlaci importovane fontove jer je u typography fajlu definisano
+      className={interLocal.className}
+      style={{fontWeight: 400}}
+      >
         <ChakraUIProvider>
           <Navigation />
           {children}</ChakraUIProvider>
