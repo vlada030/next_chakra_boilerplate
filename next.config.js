@@ -2,6 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  // this is added in order to docker run
+  output: 'standalone',
   // Adding policies:
   async headers() {
     return [

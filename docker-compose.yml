@@ -1,0 +1,12 @@
+version: '3.7'
+services:
+  next-docker:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+    volumes:
+      - "./app:/app/app"
+    env_file:
+      - ./.env
